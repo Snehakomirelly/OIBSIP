@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>BMI Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src=
+"https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+
+        <h1 class="text-primary">
+            BMI Dashboard
+        </h1>
+
+    </div>
+
+    <!-- Cards -->
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-3">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Total Users</h5>
+
+                    <h2>{{ total_users }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Average BMI</h5>
+
+                    <h2>{{ avg_bmi }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Normal Users</h5>
+
+                    <h2>{{ normal }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow text-center">
+
+                <div class="card-body">
+
+                    <h5>Obese Users</h5>
+
+                    <h2>{{ obese }}</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Chart -->
+    <div class="card shadow p-4">
+
+        <canvas id="bmiChart"></canvas>
+
+    </div>
+
+    <div class="text-center mt-4">
+
+        <a href="/"
+           class="btn btn-success">
+
+            Back to Calculator
+
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+const ctx =
+    document.getElementById('bmiChart');
+
+new Chart(ctx, {
+
+    type: 'bar',
+
+    data: {
+
+        labels: [
+            'Underweight',
+            'Normal',
+            'Overweight',
+            'Obese'
+        ],
+
+        datasets: [{
+
+            label: 'BMI Users',
+
+            data: [
+
+                {{ underweight }},
+                {{ normal }},
+                {{ overweight }},
+                {{ obese }}
+
+            ],
+
+            borderWidth: 1
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        scales: {
+
+            y: {
+
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+</body>
+</html>

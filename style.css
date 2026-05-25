@@ -1,0 +1,121 @@
+/* Default Theme Colors */
+:root {
+    --bg-color: #f4f4f4;
+    --card-color: white;
+    --text-color: black;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --bg-color: #121212;
+    --card-color: #1e1e1e;
+    --text-color: white;
+}
+
+/* Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Card */
+.card {
+    background: var(--card-color);
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0px 0px 10px gray;
+    animation: fadeIn 1s ease;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 15px;
+}
+
+/* Input Styling */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Result Box */
+#resultBox {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    animation: slideUp 0.5s ease;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Error Styling */
+#error {
+    color: red;
+    text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide Animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsive */
+@media(max-width: 500px) {
+
+    .card {
+        width: 90%;
+    }
+}

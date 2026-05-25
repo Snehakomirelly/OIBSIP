@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>BMI Calculator</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <!-- Dark Mode Button -->
+            <button id="themeToggle">
+                🌙 Toggle Mode
+            </button>
+
+            <!-- Language Selector -->
+            <div style="margin-top:10px; text-align:right;">
+
+                <select id="languageSelect"
+                        onchange="changeLanguage()">
+
+                    <option value="en">English</option>
+
+                    <option value="hi">Hindi</option>
+
+                    <option value="te">Telugu</option>
+
+                </select>
+
+            </div>
+
+            <!-- Title -->
+            <h1 id="title">
+                BMI Calculator
+            </h1>
+
+            <!-- Date & Time -->
+            <p id="dateTime"></p>
+
+            <!-- Name -->
+            <div class="input-group">
+
+                <label id="nameLabel">
+                    Name
+                </label>
+
+                <input type="text"
+                       id="name"
+                       placeholder="Enter your name">
+
+            </div>
+
+            <!-- Age -->
+            <div class="input-group">
+
+                <label id="ageLabel">
+                    Age
+                </label>
+
+                <input type="number"
+                       id="age"
+                       placeholder="Enter your age">
+
+            </div>
+
+            <!-- Gender -->
+            <div class="input-group">
+
+                <label id="genderLabel">
+                    Gender
+                </label>
+
+                <select id="gender">
+
+                    <option value="">
+                        Select Gender
+                    </option>
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- Weight -->
+            <div class="input-group">
+
+                <label id="weightLabel">
+                    Weight (kg)
+                </label>
+
+                <input type="number"
+                       id="weight"
+                       placeholder="Enter weight in kg">
+
+            </div>
+
+            <!-- Height -->
+            <div class="input-group">
+
+                <label id="heightLabel">
+                    Height (cm)
+                </label>
+
+                <input type="number"
+                       id="height"
+                       placeholder="Enter height in cm">
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <button onclick="calculateBMI()">
+                    Calculate
+                </button>
+
+                <button onclick="resetFields()">
+                    Reset
+                </button>
+
+            </div>
+
+            <!-- History Link -->
+            <div style="margin-top:10px; text-align:center;">
+
+                <a href="/history">
+
+                    📜 View BMI History
+
+                </a>
+
+            </div>
+
+            <!-- Dashboard Link -->
+            <div style="margin-top:10px; text-align:center;">
+
+                <a href="/dashboard">
+
+                    📊 View Dashboard
+
+                </a>
+
+            </div>
+
+            <!-- Error -->
+            <p id="error"></p>
+
+            <!-- Loader -->
+            <div id="loader" class="hidden">
+
+                Calculating...
+
+            </div>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="hidden">
+
+                <h2>
+
+                    Your BMI:
+                    <span id="bmiResult"></span>
+
+                </h2>
+
+                <h3>
+
+                    Category:
+                    <span id="bmiCategory"></span>
+
+                </h3>
+
+                <p id="message"></p>
+
+                <p id="tip"></p>
+
+                <p id="suggestion"></p>
+
+                <p id="idealWeight"></p>
+
+                <p id="ageSuggestion"></p>
+
+                <p id="healthSuggestion"></p>
+
+                <!-- ⭐ WATER INTAKE -->
+                <p id="waterIntake"></p>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+
+                    <div id="progress-bar"></div>
+
+                </div>
+
+            </div>
+
+            <!-- Mini History Table -->
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>BMI</th>
+
+                        <th>Category</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="historyBody">
+
+                </tbody>
+
+            </table>
+
+            <!-- Footer -->
+            <footer>
+
+                Developed by Sneha |
+                Flask BMI Calculator
+
+            </footer>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src=
+    "{{ url_for('static', filename='script.js') }}">
+    </script>
+
+</body>
+
+</html>  
